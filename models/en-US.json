@@ -3,6 +3,31 @@
     "languageModel": {
       "invocationName": "shakespearean shade",
       "intents": [
+        { 
+          "name": "InsultMeIntent",
+          "slots": [],
+          "samples": [
+            "insult me",
+            "throw some shade",
+            "throw me some shade",
+            "say an insult",
+            "tell me an insult",
+            "another",
+            "again",
+            "say another",
+            "insult me again",
+            "another insult"
+          ]
+        },
+        { "name": "ExplainIntent",
+          "slots": [],
+          "samples": [
+            "what does that mean",
+            "explain that",
+            "define that",
+            "tell me what that means"
+          ]
+        },
         {
           "name": "AMAZON.CancelIntent",
           "samples": []
@@ -14,19 +39,6 @@
         {
           "name": "AMAZON.StopIntent",
           "samples": []
-        },
-        {
-          "name": "HelloWorldIntent",
-          "slots": [],
-          "samples": [
-            "hello",
-            "how are you",
-            "say hi world",
-            "say hi",
-            "hi",
-            "say hello world",
-            "say hello"
-          ]
         },
         {
           "name": "AMAZON.NavigateHomeIntent",

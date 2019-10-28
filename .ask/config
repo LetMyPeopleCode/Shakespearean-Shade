@@ -2,7 +2,7 @@
   "deploy_settings": {
     "gregb": {
       "skill_id": "amzn1.ask.skill.daf97eea-19e6-4016-842b-c0a1adee6834",
-      "was_cloned": true,
+      "was_cloned": false,
       "merge": {},
       "resources": {
         "manifest": {
@@ -10,7 +10,7 @@
         },
         "interactionModel": {
           "en-US": {
-            "eTag": "206a4d18e2a098bf4d8484ffd439fc5d"
+            "eTag": "c68628e4ad09c490e8daebe1ec8209f4"
           }
         }
       }
