@@ -4,7 +4,7 @@
       "invocationName": "shakespearean shade",
       "intents": [
         { 
-          "name": "InsultMeIntent",
+          "name": "BurnMeIntent",
           "slots": [],
           "samples": [
             "insult me",
@@ -16,13 +16,18 @@
             "again",
             "say another",
             "insult me again",
-            "another insult"
+            "another insult",
+            "burn me",
+            "tell me a burn",
+            "let's hear a burn"
           ]
         },
         { "name": "ExplainIntent",
           "slots": [],
           "samples": [
             "what does that mean",
+            "explain this one",
+            "explain it",
             "explain that",
             "define that",
             "tell me what that means"
