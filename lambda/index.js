@@ -17,8 +17,6 @@ const LaunchRequestHandler = {
     }
 };
 
-burner.
-
 const BurnMeIntentHandler = {
   canHandle(handlerInput) {
     return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
