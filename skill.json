@@ -1,0 +1,49 @@
+{
+  "manifest": {
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "arn:aws:lambda:us-east-1:632048850480:function:daf97eea-19e6-4016-842b-c0a1adee6834:Release_0"
+        }
+      }
+    },
+    "privacyAndCompliance": {
+      "locales": {
+        "en-US": {}
+      },
+      "allowsPurchases": false,
+      "usesPersonalInfo": false,
+      "isChildDirected": false,
+      "isExportCompliant": true,
+      "containsAds": false
+    },
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "name": "Shakespearean Shade",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/f49e/19e639e611c44cf19f2937d84cbdb372/APP_ICON?versionId=V8S2wS5u6LgwEzIHQTRqMat3cS0ru7Fy&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191029T213937Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20191029%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=ae20cdfd0457c2f2ad1ba484ae769cc0c5531d852fb162ec3f911d5ec6027cec",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/6e10/1ac3a075c0a844f7abb4b11103338f6f/APP_ICON_LARGE?versionId=tU6Hsy7uOZ3au1Vv6nFV5KEq2oCiKxyo&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191029T213937Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20191029%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=bae3f113605c5abf9a4a6f20e7d391916b5db8505928c306ed96db236c0b0b81",
+          "summary": "Get insulted Elizabethan style, featuring real words and phrases from Shakespeare's works.",
+          "description": "A bounty of burns from the Bard... ish. Insults using words and phrases from Shakespeare's works. Over 100,000 variations and growing. Get an Elizabethan insult and then find out what the insult means.",
+          "examplePhrases": [
+            "Alexa ask shakespearean shade to insult me"
+          ],
+          "keywords": [
+            "shakespeare",
+            "elizabethan",
+            "burn",
+            "book",
+            "burn",
+            "shade",
+            "insult",
+            "insults",
+            "burns"
+          ]
+        }
+      },
+      "isAvailableWorldwide": true,
+      "category": "NOVELTY",
+      "distributionCountries": []
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "shakespearean shade",
+      "intents": [
+        {
+          "name": "BurnMeIntent",
+          "slots": [],
+          "samples": [
+            "insult me",
+            "throw some shade",
+            "throw me some shade",
+            "say an insult",
+            "tell me an insult",
+            "another",
+            "again",
+            "say another",
+            "insult me again",
+            "another insult",
+            "burn me",
+            "tell me a burn",
+            "let's hear a burn"
+          ]
+        },
+        {
+          "name": "ExplainIntent",
+          "slots": [],
+          "samples": [
+            "what does that mean",
+            "explain this one",
+            "explain it",
+            "explain that",
+            "define that",
+            "tell me what that means"
+          ]
+        },
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        }
+      ],
+      "types": []
+    }
+  },
+  "version": "4"
+}
