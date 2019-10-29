@@ -32,8 +32,8 @@ const BurnMeIntentHandler = {
         .speak(speakOutput)
         .reprompt('you can ask for another insult or ask me to explain this one')
         .getResponse();  
-  })
-}
+  }
+};
 
 const HelpIntentHandler = {
     canHandle(handlerInput) {
