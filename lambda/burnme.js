@@ -143,7 +143,7 @@ exports.explainMe = (burn) => {
       if (nouns[burn[i]]) {
         explanation += "<p>" + burn[i] + " means " + nouns[burn[i]] + "</p>";
       } else if (adjectives[burn[i]]) {
-        explanation += "<p>" + burn[i] + " means " + asjectives[burn[i]] + "</p>";
+        explanation += "<p>" + burn[i] + " means " + adjectives[burn[i]] + "</p>";
       }
     }
     return explanation;   
