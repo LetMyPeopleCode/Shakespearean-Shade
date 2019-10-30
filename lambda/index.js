@@ -20,7 +20,7 @@ const LaunchRequestHandler = {
 const BurnMeIntentHandler = {
   canHandle(handlerInput) {
     return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-    && Alexa.getIntentName(handlerInput.requestEnvelope) === 'HelloWorldIntent';
+    && Alexa.getIntentName(handlerInput.requestEnvelope) === 'BurnMeIntent';
   },
   async handle(handlerInput) {
     var burn = burner.burnMe();
