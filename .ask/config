@@ -1,0 +1,31 @@
+{
+  "deploy_settings": {
+    "gregb": {
+      "skill_id": "amzn1.ask.skill.daf97eea-19e6-4016-842b-c0a1adee6834",
+      "was_cloned": false,
+      "merge": {},
+      "resources": {
+        "manifest": {
+          "eTag": "04917984ee120f67cab67fd4d5f2e435"
+        },
+        "interactionModel": {
+          "en-US": {
+            "eTag": "3de2559498e404ac63aef98fba13662b"
+          }
+        }
+      }
+    }
+  },
+  "alexaHosted": {
+    "isAlexaHostedSkill": true,
+    "profile": "gregb",
+    "gitCredentialsCache": {
+      "protocol": "https",
+      "host": "git-codecommit.us-east-1.amazonaws.com",
+      "path": "v1/repos/daf97eea-19e6-4016-842b-c0a1adee6834",
+      "username": "ASIAZGKIMCYYMC3VS4L6%IQoJb3JpZ2luX2VjEKf//////////wEaCXVzLWVhc3QtMSJIMEYCIQCYnheYnfdRXjo9WW7WEqsQvf5vjZ3skda4aE6+hVnObQIhANnAmLK0lpX/IatfRCxs4R2/WdyX/uzhZ9tprSKhldW/Ku0BCLD//////////wEQARoMNjMyMDQ4ODUwNDgwIgyTw9x2XSRR8stWmvMqwQFO7pEdpM1E2NZ52TQLzObOz6ZYCzh49zEcTrZAugNAU/ZBjjNUb2XF8F0iy44O2JWgwT6/DoP9wLferz4eLDHM/8VdVXIH8Ng67w0srQctgQfQVm6guq6k/rJL+c+EsfvYDZH3Zl50FnWTcmJEwvIiVPrHA7lCFVETfbNLIqGkrIqR/OvM9rD1G11tGr+bajdkBWDSyrluGK5yh1VyCrUpYHFT+Enjx30FtMEwVRyhFVBH5zkJdwUHS5TgzF66E2NXMJqH4+0FOuIBGrQdpEico/T0y9kM+WZ10s1HO7homV5j7eGNNEfUZACs+8Ef7usY65jsQdpRMdKaRSmr4OENmWcOv2rHvuLopNAg5bHw83xBswbZyTJQTizaZN1ay7sDplXQ2q6KVbARg4mQqcS6CRNJrlE0YRhZu+8wS12WH+m1F9N5HFoin1gBrf99qm8hAkQM/NMKrTlJ/5WVy/1GC1O9TywIPnQMjSEt0S+URzHun8oF/2iP1inRx683HFFzWkJHtpqc6RPVKFRW1R70AwMj+AdezBFW08rHvoYwKVOZuQsOB1W7gTR+yQ==",
+      "password": "20191029T225626Z1fc955e9b67ef8439a5dc760b43f281d7af12b376008f4e5521f19ad0f89650b",
+      "expiresAt": 0
+    }
+  }
+}
