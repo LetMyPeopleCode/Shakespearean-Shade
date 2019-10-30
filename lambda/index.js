@@ -22,18 +22,43 @@ const BurnMeIntentHandler = {
     return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
     && Alexa.getIntentName(handlerInput.requestEnvelope) === 'HelloWorldIntent';
   },
-  handle(handlerInput) {
+  async handle(handlerInput) {
     var burn = burner.burnMe();
     var speakOutput = "";
     for(let i in burn){
       speakOutput += burn[i] + ' ';
     }
+    //save the burn to session attributes
+    await handlerInput.attributesManager.setSessionAttributes({"burn": burn});
+
     return handlerInput.responseBuilder
         .speak(speakOutput)
         .reprompt('you can ask for another insult or ask me to explain this one')
         .getResponse();  
   }
 };
+
+const ExplainIntentHandler = {
+  canHandle(handlerInput) {
+    return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+    && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ExplainIntent';
+  },
+  async handle(handlerInput) {
+    let attributes = await handlerInput.attributesManager.getSessionAttributes();
+    let explain = "";
+    //check for a prior burn
+    if(attributes.hasOwnProperty('burn')) {
+      explain = burner.explainMe(attributes.burn);
+    } else {
+      explain = "I haven't burned you yet. Try saying 'burn me'.";
+    }
+    
+    return handlerInput.responseBuilder
+    .speak(explain)
+    .reprompt('you can ask for another insult or ask me to explain this one')
+    .getResponse();  
+  }
+}
 
 const HelpIntentHandler = {
     canHandle(handlerInput) {
@@ -116,6 +141,7 @@ exports.handler = Alexa.SkillBuilders.custom()
     .addRequestHandlers(
         LaunchRequestHandler,
         BurnMeIntentHandler,
+        ExplainIntentHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
         SessionEndedRequestHandler,

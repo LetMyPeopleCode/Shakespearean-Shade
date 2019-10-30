@@ -19,7 +19,6 @@ const nouns = {
   "elf-skin" : "a shriveled old person",
   "flibbertigibbet" : "a devil",
   "flirt-jack" : "man of low morals / promiscuous man",
-  "fool" : "fool",
   "fool" : "someone who acts stupidly",
   "fustilarian" : "an ugly and slow person",
   "goose" : "a goose",
@@ -106,11 +105,18 @@ const adjectives = {
   "clay-brained" : "stupid"
 };
 
+const addressing = {
+  "okay, you" : false,
+  "thou art a": false,
+  "thou be-est a": false
+}
+
 const nounarr = Object.keys(nouns);
-const adjarr = Object.keys(adjectives)
+const adjarr = Object.keys(adjectives);
+const addrarr = Object.keys(addressing);
 
 const getrand = (max) => {
-  return(Math.floor(Math.random() * max));
+  return(Math.round(Math.random() * max-1));
 }
 
 exports.burnMe = () => {
@@ -121,12 +127,23 @@ exports.burnMe = () => {
   let flipper = getrand(100);
 
   if(flipper < 40){
-    insult = [adjarr[getrand(nounarr.length)], nounarr[getrand(nounarr.length)]];
+    insult = [addrarr[getrand(addrarr.length)], adjarr[getrand(adjarr.length)], nounarr[getrand(nounarr.length)]];
   } else {
-    insult = [adjarr[getrand(nounarr.length)], adjarr[getrand(nounarr.length)], nounarr[getrand(nounarr.length)]];
+    insult = [addrarr[getrand(addrarr.length)], adjarr[getrand(adjarr.length)], adjarr[getrand(adjarr.length)], nounarr[getrand(nounarr.length)]];
   }
 
   return insult;
 
 }
 
+exports.explainMe = (burn) => {
+    let explanation = "";
+    for (let i in burn){
+      if (nouns[burn[i]]) {
+        explanation += "<p>" + burn[i] + " means " + nouns[i] + "</p>";
+      } else if (adjectives[burn[i]]) {
+        explanation += "<p>" + burn[i] + " means " + adjectives[i] + "</p>";
+      }
+    }
+    return explanation;   
+}
