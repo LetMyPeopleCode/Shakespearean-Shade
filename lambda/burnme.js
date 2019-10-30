@@ -125,11 +125,12 @@ exports.burnMe = () => {
   let nounarr = Object.keys(nouns);
   let adjarr = Object.keys(adjectives)
   let flipper = getrand(100);
+  let insult = [];
 
   if(flipper < 40){
-    const insult = [addrarr[getrand(addrarr.length)], adjarr[getrand(adjarr.length)], nounarr[getrand(nounarr.length)]];
+    insult = [addrarr[getrand(addrarr.length)], adjarr[getrand(adjarr.length)], nounarr[getrand(nounarr.length)]];
   } else {
-    const insult = [addrarr[getrand(addrarr.length)], adjarr[getrand(adjarr.length)], adjarr[getrand(adjarr.length)], nounarr[getrand(nounarr.length)]];
+    insult = [addrarr[getrand(addrarr.length)], adjarr[getrand(adjarr.length)], adjarr[getrand(adjarr.length)], nounarr[getrand(nounarr.length)]];
   }
 
   return insult;
