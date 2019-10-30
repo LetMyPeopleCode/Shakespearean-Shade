@@ -127,9 +127,9 @@ exports.burnMe = () => {
   let flipper = getrand(100);
 
   if(flipper < 40){
-    insult = [addrarr[getrand(addrarr.length)], adjarr[getrand(adjarr.length)], nounarr[getrand(nounarr.length)]];
+    const insult = [addrarr[getrand(addrarr.length)], adjarr[getrand(adjarr.length)], nounarr[getrand(nounarr.length)]];
   } else {
-    insult = [addrarr[getrand(addrarr.length)], adjarr[getrand(adjarr.length)], adjarr[getrand(adjarr.length)], nounarr[getrand(nounarr.length)]];
+    const insult = [addrarr[getrand(addrarr.length)], adjarr[getrand(adjarr.length)], adjarr[getrand(adjarr.length)], nounarr[getrand(nounarr.length)]];
   }
 
   return insult;
