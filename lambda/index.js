@@ -20,7 +20,7 @@ const LaunchRequestHandler = {
 const BurnMeIntentHandler = {
   canHandle(handlerInput) {
     return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-    && Alexa.getIntentName(handlerInput.requestEnvelope) === 'HelloWorldIntent';
+    && Alexa.getIntentName(handlerInput.requestEnvelope) === 'BurnMeIntent';
   },
   async handle(handlerInput) {
     var burn = burner.burnMe();
@@ -51,7 +51,7 @@ const ExplainIntentHandler = {
       explain = burner.explainMe(attributes.burn);
     } else {
       explain = "I haven't burned you yet. Try saying 'burn me'.";
-    }
+    };
     
     return handlerInput.responseBuilder
     .speak(explain)
