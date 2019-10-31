@@ -51,7 +51,7 @@ const ExplainIntentHandler = {
       explain = burner.explainMe(attributes.burn);
     } else {
       explain = "I haven't burned you yet. Try saying 'burn me'.";
-    };
+    }
     
     return handlerInput.responseBuilder
     .speak(explain)

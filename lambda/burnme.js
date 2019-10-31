@@ -141,9 +141,9 @@ exports.explainMe = (burn) => {
     let explanation = "";
     for (let i in burn){
       if (nouns[burn[i]]) {
-        explanation += "<p>" + burn[i] + " means " + nouns[i] + "</p>";
+        explanation += "<p>" + burn[i] + " means " + nouns[burn[i]] + "</p>";
       } else if (adjectives[burn[i]]) {
-        explanation += "<p>" + burn[i] + " means " + adjectives[i] + "</p>";
+        explanation += "<p>" + burn[i] + " means " + adjectives[burn[i]] + "</p>";
       }
     }
     return explanation;   
