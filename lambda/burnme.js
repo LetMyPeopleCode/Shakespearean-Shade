@@ -114,7 +114,7 @@ const addressing = {
 const farewells = {
   "begone from my sight or at least my microphone range!" : false,
   "until the morrow... farewell!": false,
-  "Shakespeare owoot!": false,
+  "Shakespeare out!": false,
   "Okay, thanks, bye!": false
 }
 
