@@ -47,7 +47,9 @@ const nouns = {
   "urchin" : "street child",
   "varlet" : "low, uncouth character",
   "want-wit" : "someone lacking wits",
-  "younker" : "sucker, easily fooled person"
+  "younker" : "sucker, easily fooled person",
+  "pandar" : "pimp, panderer",
+  "wight" : "a cursed or unlucky person"
 };
 
 const adjectives = {
@@ -84,7 +86,6 @@ const adjectives = {
   "naughty" : "naughty (but stronger)",
   "out of warrant" : "unjustifiable",
   "paltering" : "quibbling or deceptive",
-  "pandar" : "pimp, panderer",
   "puling" : "whining",
   "quailing" : "giving up in a cowardly manner",
   "reechy" : "smoky, foul",
@@ -100,7 +101,6 @@ const adjectives = {
   "unsinew'd" : "weak",
   "untaught" : "crude, ignorant",
   "vulgar" : "common, low-born",
-  "wight" : "a cursed or unlucky person",
   "yerked" : "stabbed",
   "clay-brained" : "stupid"
 };
@@ -114,7 +114,7 @@ const addressing = {
 const farewells = {
   "begone from my sight or at least my microphone range!" : false,
   "until the morrow... farewell!": false,
-  "Shakespeare owwwwt!": false,
+  "Shakespeare owoot!": false,
   "Okay, thanks, bye!": false
 }
 
