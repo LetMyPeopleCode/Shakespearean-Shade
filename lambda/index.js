@@ -25,7 +25,7 @@ const BurnMeIntentHandler = {
 
     const newLocal = ((Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
       && Alexa.getIntentName(handlerInput.requestEnvelope) === 'BurnMeIntent')
-      || (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.YesIntent' && (attributes.last === "define" || attributes.last === "welcome" || attributes.last == "noIntentDefine")));
+      || (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.YesIntent' && (attributes.last === "define" || attributes.last === "welcome" || attributes.last === "noIntentDefine")));
     return newLocal;
   },
   async handle(handlerInput) {
