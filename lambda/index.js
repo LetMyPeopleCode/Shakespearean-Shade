@@ -8,8 +8,9 @@ const LaunchRequestHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
     },
-    handle(handlerInput) {
+    async handle(handlerInput) {
         const speakOutput = 'Welcome to Shakespearean Shade. Burns from the Bard. Shall I burn thee?';
+        await handlerInput.attributesManager.setSessionAttributes({"last": "welcome"});
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(speakOutput)
@@ -22,15 +23,16 @@ const BurnMeIntentHandler = {
 
     let attributes = await handlerInput.attributesManager.getSessionAttributes();
 
-    return ((Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+    const newLocal = ((Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
       && Alexa.getIntentName(handlerInput.requestEnvelope) === 'BurnMeIntent')
-    ||(Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.YesIntent' && (attributes.last === "define" || attributes.last === "welcome")));
+      || (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.YesIntent' && (attributes.last === "define" || attributes.last === "welcome")));
+    return newLocal;
   },
   async handle(handlerInput) {
     var burn = burner.burnMe();
     var speakOutput = "";
     for(let i in burn){
-      speakOutput += burn[i] + ' <break time ="900ms"> Shall I explain that? ';
+      speakOutput += burn[i] + ' <break time ="900ms" /> Shall I explain that? ';
     }
     //save the burn to session attributes
     await handlerInput.attributesManager.setSessionAttributes({"burn": burn});
@@ -56,7 +58,7 @@ const ExplainIntentHandler = {
     let explain = "";
     //check for a prior burn
     if(attributes.hasOwnProperty('burn')) {
-      explain = burner.explainMe(attributes.burn) + " <break time ='900ms'> Shall I burn thee again?";
+      explain = burner.explainMe(attributes.burn) + " <break time ='900ms' /> Shall I burn thee again?";
     } else {
       explain = "I haven't burned you yet. Try saying 'burn me'.";
     }
