@@ -35,7 +35,7 @@ const BurnMeIntentHandler = {
       speakOutput += burn[i] + ' ';
     }
 
-    speakOutput += '. <break time ="900ms" /> Shall I explain that? ';
+    speakOutput += '. Shall I explain that? ';
     
     //save the burn to session attributes
     await handlerInput.attributesManager.setSessionAttributes({"burn": burn, "last": "burn"});
@@ -60,7 +60,7 @@ const ExplainIntentHandler = {
     let explain = "";
     //check for a prior burn
     if(attributes.hasOwnProperty('burn')) {
-      explain = burner.explainMe(attributes.burn) + " <break time ='900ms' /> Shall I burn thee again?";
+      explain = burner.explainMe(attributes.burn) + " Shall I burn thee again?";
       await handlerInput.attributesManager.setSessionAttributes({"last": "define", "burn": attributes.burn});  
     } else {
       explain = "I haven't burned you yet. Try saying 'burn me'.";
@@ -132,7 +132,7 @@ const CancelAndStopIntentHandler = {
               || Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.StopIntent'))
           || (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
               && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.NoIntent'
-              && (attributes.last === "noIntentDefine" || attributes.last === "NoIntentBurn" ));
+              && (attributes.last === "noIntentDefine" || attributes.last === "noIntentBurn" ));
     },
     handle(handlerInput) {
         const speakOutput = burner.farewell();
