@@ -111,9 +111,17 @@ const addressing = {
   "thou be-est a": false
 }
 
+const farewells = {
+  "begone from my sight or at least my microphone range!" : false,
+  "until the morrow... farewell!": false,
+  "Shakespeare owwwwt!": false,
+  "Okay, thanks, bye!": false
+}
+
 const nounarr = Object.keys(nouns);
 const adjarr = Object.keys(adjectives);
 const addrarr = Object.keys(addressing);
+const byearr = Object.keys(farewells);
 
 const getrand = (max) => {
   return(Math.round(Math.random() * (max-1)));
@@ -147,4 +155,8 @@ exports.explainMe = (burn) => {
       }
     }
     return explanation;   
+}
+
+exports.farewell = () => {
+  return byearr[getrand(byearr.length)];
 }

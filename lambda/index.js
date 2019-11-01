@@ -9,7 +9,7 @@ const LaunchRequestHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
     },
     handle(handlerInput) {
-        const speakOutput = 'Welcome to Shakespearean Shade. Burns from the Bard. Say "burn me" to get started';
+        const speakOutput = 'Welcome to Shakespearean Shade. Burns from the Bard. Shall I burn thee?';
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(speakOutput)
@@ -18,45 +18,84 @@ const LaunchRequestHandler = {
 };
 
 const BurnMeIntentHandler = {
-  canHandle(handlerInput) {
-    return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-    && Alexa.getIntentName(handlerInput.requestEnvelope) === 'BurnMeIntent';
+  async canHandle(handlerInput) {
+
+    let attributes = await handlerInput.attributesManager.getSessionAttributes();
+
+    return ((Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+      && Alexa.getIntentName(handlerInput.requestEnvelope) === 'BurnMeIntent')
+    ||(Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.YesIntent' && attributes.last === "define"));
   },
   async handle(handlerInput) {
     var burn = burner.burnMe();
     var speakOutput = "";
     for(let i in burn){
-      speakOutput += burn[i] + ' ';
+      speakOutput += burn[i] + ' <break time ="900ms"> Shall I explain that? ';
     }
     //save the burn to session attributes
     await handlerInput.attributesManager.setSessionAttributes({"burn": burn});
+    await handlerInput.attributesManager.setSessionAttributes({"last": "burn"});
 
     return handlerInput.responseBuilder
         .speak(speakOutput)
-        .reprompt('you can ask for another insult or ask me to explain this one')
+        .reprompt('Try saying "burn me" to get burned again or "explain that" to get this one explained.')
         .getResponse();  
   }
 };
 
 const ExplainIntentHandler = {
-  canHandle(handlerInput) {
-    return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-    && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ExplainIntent';
+  async canHandle(handlerInput) {
+    let attributes = await handlerInput.attributesManager.getSessionAttributes();
+
+    return ((Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+      && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ExplainIntent')
+    ||(Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.YesIntent' && attributes.last === "burn"));
   },
   async handle(handlerInput) {
     let attributes = await handlerInput.attributesManager.getSessionAttributes();
     let explain = "";
     //check for a prior burn
     if(attributes.hasOwnProperty('burn')) {
-      explain = burner.explainMe(attributes.burn);
+      explain = burner.explainMe(attributes.burn) + " <break time ='900ms'> Shall I burn thee again?";
     } else {
       explain = "I haven't burned you yet. Try saying 'burn me'.";
     }
+
+    await handlerInput.attributesManager.setSessionAttributes({"last": "define"});
     
     return handlerInput.responseBuilder
     .speak(explain)
-    .reprompt('you can ask for another insult or ask me to explain this one')
+    .reprompt('Try saying "burn me" to get a new burn or "explain that" to hear this explained again.')
     .getResponse();  
+  }
+}
+
+const LastChanceHandler = {
+  async canHandle(HandlerInput){
+    let attributes = await handlerInput.attributesManager.getSessionAttributes();
+
+    return (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+              && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.NoIntent'
+              && (attributes.last === "burn" || attributes.last === "define"));
+  },
+  async handle(HandlerInput) {
+
+    let attributes = await handlerInput.attributesManager.getSessionAttributes();
+    let speakOutput = ""
+
+    if(attributes.last === "burn"){
+      speakOutput = "Would you like me to define that?";
+    } else {
+      speakOutput = "Shall I burn thee?"
+    }
+
+    await handlerInput.attributesManager.setSessionAttributes({"last": "noIntent"});
+
+    return handlerInput.responseBuilder
+        .speak(speakOutput)
+        .reprompt(speakOutput)
+        .getResponse();
+
   }
 }
 
@@ -66,7 +105,7 @@ const HelpIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.HelpIntent';
     },
     handle(handlerInput) {
-        const speakOutput = 'You can say hello to me! How can I help?';
+        const speakOutput = "Say 'burn me' to get burned or say 'explain that' to get a burn explained";
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -74,14 +113,21 @@ const HelpIntentHandler = {
             .getResponse();
     }
 };
+
 const CancelAndStopIntentHandler = {
     canHandle(handlerInput) {
-        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.CancelIntent'
-                || Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.StopIntent');
+
+      let attributes = await handlerInput.attributesManager.getSessionAttributes();
+
+      return (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+          && (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.CancelIntent'
+              || Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.StopIntent'))
+          || (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+              && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.NoIntent'
+              && attributes.last === "noIntent");
     },
     handle(handlerInput) {
-        const speakOutput = 'Goodbye!';
+        const speakOutput = burner.farewell();
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .getResponse();
@@ -142,6 +188,7 @@ exports.handler = Alexa.SkillBuilders.custom()
         LaunchRequestHandler,
         BurnMeIntentHandler,
         ExplainIntentHandler,
+        LastChanceHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
         SessionEndedRequestHandler,
