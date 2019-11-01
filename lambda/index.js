@@ -71,14 +71,14 @@ const ExplainIntentHandler = {
 }
 
 const LastChanceHandler = {
-  async canHandle(HandlerInput){
+  async canHandle(handlerInput){
     let attributes = await handlerInput.attributesManager.getSessionAttributes();
 
     return (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
               && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.NoIntent'
               && (attributes.last === "burn" || attributes.last === "define"));
   },
-  async handle(HandlerInput) {
+  async handle(handlerInput) {
 
     let attributes = await handlerInput.attributesManager.getSessionAttributes();
     let speakOutput = ""
