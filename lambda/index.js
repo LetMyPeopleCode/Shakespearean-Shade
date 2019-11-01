@@ -38,8 +38,7 @@ const BurnMeIntentHandler = {
     speakOutput += '. <break time ="900ms" /> Shall I explain that? ';
     
     //save the burn to session attributes
-    await handlerInput.attributesManager.setSessionAttributes({"burn": burn});
-    await handlerInput.attributesManager.setSessionAttributes({"last": "burn"});
+    await handlerInput.attributesManager.setSessionAttributes({"burn": burn, "last": "burn"});
 
     return handlerInput.responseBuilder
         .speak(speakOutput)
@@ -62,11 +61,13 @@ const ExplainIntentHandler = {
     //check for a prior burn
     if(attributes.hasOwnProperty('burn')) {
       explain = burner.explainMe(attributes.burn) + " <break time ='900ms' /> Shall I burn thee again?";
+      await handlerInput.attributesManager.setSessionAttributes({"last": "define", "burn": attributes.burn});  
     } else {
       explain = "I haven't burned you yet. Try saying 'burn me'.";
+      await handlerInput.attributesManager.setSessionAttributes({"last": "welcome"});  
     }
 
-    await handlerInput.attributesManager.setSessionAttributes({"last": "define"});
+  
     
     return handlerInput.responseBuilder
     .speak(explain)
