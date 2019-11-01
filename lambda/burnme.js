@@ -116,7 +116,7 @@ const adjarr = Object.keys(adjectives);
 const addrarr = Object.keys(addressing);
 
 const getrand = (max) => {
-  return(Math.round(Math.random() * max-1));
+  return(Math.round(Math.random() * (max-1)));
 }
 
 exports.burnMe = () => {
