@@ -115,7 +115,7 @@ const HelpIntentHandler = {
 };
 
 const CancelAndStopIntentHandler = {
-    canHandle(handlerInput) {
+    async canHandle(handlerInput) {
 
       let attributes = await handlerInput.attributesManager.getSessionAttributes();
 
