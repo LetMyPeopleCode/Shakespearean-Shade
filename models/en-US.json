@@ -53,6 +53,10 @@
         {
           "name": "AMAZON.YesIntent",
           "samples": []
+        },
+        {
+          "name": "AMAZON.NoIntent",
+          "samples": []
         }
       ],
       "types": []
