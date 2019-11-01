@@ -10,7 +10,7 @@
         },
         "interactionModel": {
           "en-US": {
-            "eTag": "dd0033a9d0b4b80546eeca88c5f74ced"
+            "eTag": "d2537ea1ab2b139988ec5672346d961e"
           }
         }
       }
@@ -23,8 +23,8 @@
       "protocol": "https",
       "host": "git-codecommit.us-east-1.amazonaws.com",
       "path": "v1/repos/daf97eea-19e6-4016-842b-c0a1adee6834",
-      "username": "ASIAZGKIMCYYEJIIMFHO%IQoJb3JpZ2luX2VjENz//////////wEaCXVzLWVhc3QtMSJIMEYCIQDw7BgIcyuH3Hc43tWcuHpE2jhnOw8GxS5wnrqWm7WUHQIhAM8yfVP46qJN8StESeXGF3rpHI6RtPMMYIVZomXoru0FKu0BCOX//////////wEQARoMNjMyMDQ4ODUwNDgwIgzsA4DtXZZGkwz3c/8qwQGpTRIC0rS5HfZKZO9po2YZtRi3yoXruHpnbLvmidx8N/HcYJWoDtonVv4UHb0gT9YrUNhERSqSiCz+ApvTf1uhRqWYVzQLBpN200xgUottXcx/eY6asl5W32PFxcCfjSOcWj4ONk8+E8YJjpvitL1lqLsMc21Dxj6K1PsD1Z0bCc6X1O+qKJzoWycNNjlhWj/krsxwHMPQII63SyH7oGP3zIoBWqBpfM8LqUWbierLvRbbnTAI60EGrtR7KkQHnpZ5MOjN7u0FOuIBPASS+gm6lz/Vs/kTMxvtCAFisumO8Vw0/s47Sh7qXW4I9UOyh2gpOhPKX4AoafMgBQAlLWS4VjmOhXEzbuzDvCRWG41cTyicOMkzn8PPSYHL9fJMCwyHQIHy8x7IEVWFqxad2uMBpPXE7dC7V3TIQe4nebsjtIBDxRGqtwOx8vAE823STxxn9pYB+v4XG8zjl+UorHoCg9k1q326qfvV9bCG/AV41nJZCyR8C50SYci7D0c+F1/YyMxlvSh8A8gb/wK0FmHemDhBtKYwh96VuT43kvd8JvzRgvlW/GPAyiGM8A==",
-      "password": "20191101T033048Z589fb632700aeaa3c3e30db7786a5157033e9d9c70a3e4b276f15660a780f42e",
+      "username": "ASIAZGKIMCYYHK6RUNU5%IQoJb3JpZ2luX2VjENz//////////wEaCXVzLWVhc3QtMSJGMEQCIBdJIDyNOtCRv5ddb5420zeNrvJ70iNJZfYgXXZ4Ax6iAiAEKcjONA0dhMOIKgdvuv3nGsU8JQzGXuEFiEFApL7ISCrtAQjl//////////8BEAEaDDYzMjA0ODg1MDQ4MCIM3K+7lg9lYii/cXqrKsEBfNDXYdvL3d/VN0Oqhw0Ku+CVPYVQnj1Wb9iBnyxyFCIMFcAUM1GS6npV5Y54yTYPV7uHZuNV6Dh85m3BWEO0oRJaXfAuMHhV6dacD4ee/vfnZDH3LToaDdIXodvW9VPYAxB8TzHVYi5vRRRFe4d+xqF5R6NEREJJFcGWINZUzKS7S9JTYJsJJPxam8GQ2MCiVRCPOsy4agx6C/3S9llgfvFAQpb9ZwAmvPoy6LQu5eOu8S9+9nW5qQZWlJ8/svd4NjCSz+7tBTrkAVpJ9RbwOFnzTHaJTx9IvHWG1hGhv6WIzVv+no8c+xQyXOwK7VjMlhLYcolbA54JCy3ZwAvrvfm09HBwMAiRogyqTSKM8qLUppfye0Bo1wyv8QCSTFGKHDc2cjtcfo+jqeVmZRJRp2yma5zj05PdE2wPWN4HMlFMl61J7JHTJSq5Epf+l5Id9qD/Uslg83y11+xLhKlnHmjPfVm0EDgJuPItdVjn69LkiNEKBmMYQFCyW+pXNSSWOIJ1/ByWlOBlkk2/t31uGdhuzvNM4xZY3x6laSNxTgg4GIB5hkasQfC0fet4Xw==",
+      "password": "20191101T033338Z8fa4bd6ca68de7b0a730a7194db1afc3b88c24f17a12c8aa97b56807fb3fc29f",
       "expiresAt": 0
     }
   }
