@@ -50,6 +50,10 @@
           "name": "AMAZON.NavigateHomeIntent",
           "samples": []
         }
+        {
+          "name": "AMAZON.YesIntent",
+          "samples": []
+        }
       ],
       "types": []
     }
