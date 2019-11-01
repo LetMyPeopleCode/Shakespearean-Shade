@@ -132,7 +132,7 @@ const CancelAndStopIntentHandler = {
               || Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.StopIntent'))
           || (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
               && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.NoIntent'
-              && (attributes.last === "noIntentDefine" || attributes.last === "noIntentBurn" ));
+              && (attributes.last === "noIntentDefine" || attributes.last === "noIntentBurn" || attributes.last === "welcome"));
     },
     handle(handlerInput) {
         const speakOutput = burner.farewell();
