@@ -25,7 +25,7 @@ const BurnMeIntentHandler = {
 
     const newLocal = ((Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
       && Alexa.getIntentName(handlerInput.requestEnvelope) === 'BurnMeIntent')
-      || (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.YesIntent' && (attributes.last === "define" || attributes.last === "welcome" || attributes.last === "noIntentDefine")));
+      || (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.YesIntent' && (attributes.last === "define" || attributes.last === "welcome" || attributes.last === "noIntentBurn")));
     return newLocal;
   },
   async handle(handlerInput) {
@@ -53,7 +53,7 @@ const ExplainIntentHandler = {
 
     return ((Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
       && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ExplainIntent')
-    ||(Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.YesIntent' && (attributes.last === "burn" || attributes.last === "noIntentBurn")));
+    ||(Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.YesIntent' && (attributes.last === "burn" || attributes.last === "noIntentDefine")));
   },
   async handle(handlerInput) {
     let attributes = await handlerInput.attributesManager.getSessionAttributes();
