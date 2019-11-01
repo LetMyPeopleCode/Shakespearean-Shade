@@ -35,7 +35,8 @@ const BurnMeIntentHandler = {
       speakOutput += burn[i];
     }
 
-    speakOutput +=  + ' <break time ="900ms" /> Shall I explain that? ';
+    speakOutput += ' <break time ="900ms" /> Shall I explain that? ';
+    
     //save the burn to session attributes
     await handlerInput.attributesManager.setSessionAttributes({"burn": burn});
     await handlerInput.attributesManager.setSessionAttributes({"last": "burn"});
